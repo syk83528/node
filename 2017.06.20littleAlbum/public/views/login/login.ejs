@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>琥珀登录</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        form, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        .container .row button {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>登录</h1>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <form class="col-md-4">
+            <div class="form-group">
+                <label for="account">账号</label>
+                <input type="text" class="form-control" id="account" placeholder="用户名" name="account">
+            </div>
+            <div class="form-group">
+                <label for="psd">密码</label>
+                <input type="password" class="form-control" id="psd" placeholder="Password" name="password">
+            </div>
+            <button type="submit" class="btn btn-default" id="submit">登录</button>
+        </form>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+<script src="/js/jquery-1.11.3.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+       $('#submit').on('click',function () {
+          var body = {};
+          body.account = $('#account').val();
+          body.psd = $('#psd').val();
+//          alert(JSON.stringify(body));
+//           请求网络
+
+           $.ajax({
+               type: "post",
+               url: "/api/loginHandle",
+               data: body,
+               contentType: "application/json; charset=utf-8",
+               success: function (data) {
+                   alert(1)
+               },
+               error: function (msg) {
+                   alert(JSON.stringify(msg));
+               }
+           });
+
+       });
+    });
+
+</script>
+</body>
+</html>

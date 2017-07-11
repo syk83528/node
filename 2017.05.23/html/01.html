@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            height: 30px;
+            border: 1px solid #000;
+        }
+    </style>
+
+</head>
+<body>
+<script>
+    //创建歌曲管理
+    function MP3Manager(songs) {
+        this.songlist = songs || [];
+
+
+    }
+
+    MP3Manager.prototype = {
+        addSong : function (songName,singer) {
+            if (!songName || !singer || songName=="" || singer=="") {
+                return ;
+            }
+            //制造一个临时歌曲对象
+            var tempSong = {name:songName,singer:singer};
+            //添加到歌曲列表中
+            this.songlist.push(tempSong);
+        },
+
+        removeSong : function (songName) {
+            if (!songName || songName=="") {
+                return ;
+            }
+
+            for (var i = 0; i < this.songlist.length; i++) {
+                var obj = this.songlist[i];
+                if (obj.name === songName) {
+                    this.songlist.pop(obj);
+                }
+            }
+        },
+
+        updateSong : function (songName,singer) {
+            var song = this.selectSong(songName);
+            if (song == null) {
+                song.singer = singer;
+                return song;
+            }else {
+                return null;
+            }
+        },
+
+        selectSong : function (songName) {
+            for (var i = 0; i < this.songlist.length; i++) {
+                var obj = this.songlist[i];
+                if (obj.name === songName) {
+                    return obj;
+                }
+            }
+            return null;
+        }
+    }
+
+    var mgr = new MP3Manager([
+        {
+            name:"南山南",
+            singer:"马頔"
+        },
+        {
+            name:"大明湖畔",
+            singer:"夏雨荷"
+        },
+        {
+            name:"五环之歌",
+            singer:"小岳岳"
+        }
+    ]);
+
+    mgr.addSong('nihao','苏义坤');
+    console.log(mgr);
+    var song1 = mgr.selectSong('nihao');
+    console.log(song1);
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <!-- 指定模块 -->
+    <!-- 一个页可以有多个模块，但是不能互想嵌套 -->
+    <!-- 一般只会有一个 -->
+    <div class="box" ng-app="App">
+        <div ng-controller="DemoController">
+            <h1>{{name}}正在学习AngularJS</h1>
+            <h2 ng-repeat="(key,val) in classes">第{{key+1}}天,{{val}}在吃饭</h2>
+        </div>
+    </div>
+
+
+
+<script src="libs/angular.min.js"></script>
+<script>
+    //创建一个模块
+    var App = angular.module('App',[]);
+    App.controller('DemoController',['$scope',function ($scope) {
+        $scope.name = '呵呵';
+        $scope.classes = ['hehe','你好','宝贝儿周文清'];
+    }]);
+
+</script>
+</body>
+</html>

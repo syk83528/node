@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="target-densitydpi=320,width=640,user-scalable=no">
+    <title>Title</title>
+</head>
+<body ng-app="App">
+<div ng-controller="DemoController">
+    {{name|demo}}
+</div>
+
+<script src="libs/angular.min.js"></script>
+<script>
+    var App = angular.module('App',[]);
+    App.controller('DemoController',['$scope',function ($scope) {
+        $scope.name = 'haha';
+    }]);
+    App.filter('demo',function () {
+        return function (input) {
+            alert(input);
+            return 'nihao'+input;
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+/*    reset  css */
+@charset "UTF-8";
+/*css 初始化 */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset, img, input, button { 			/*fieldset组合表单中的相关元素*/
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline-style: none;
+}
+
+ul, ol {
+    list-style: none;				/*清除列表风格*/
+}
+
+input {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: sans-serif;
+}
+
+select, input {
+    vertical-align: middle;
+}
+
+select, input, textarea {
+    font-size: 12px;
+    margin: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+/*防止多行文本框拖动*/
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+/*  去掉图片低测默认的3像素空白缝隙*/
+table {
+    border-collapse: collapse;			/*合并外边线*/
+}
+
+
+body {
+    font: 12px/150% Arial, Verdana, "\5b8b\4f53";	/*宋体，Unicode，统一码*/
+    color: #666;
+    background: #fff
+}
+
+*,
+::before,
+::after{
+    /*ѡ�����еı�ǩ */
+    margin: 0;
+    padding: 0;
+
+    /*����ƶ���Ĭ�ϵ� �������Ч��*/
+    -webkit-tap-highlight-color: transparent;
+    /*�������еĶ����Ա߿�ʼ������  �ٷֱ�*/
+    -webkit-box-sizing: border-box;/*����*/
+    box-sizing: border-box;
+}
+body{
+    font-size: 14px;
+    font-family: "MicroSoft YaHei",sans-serif;/*�豸Ĭ������*/
+    color: #333;
+}
+a{
+    color: #333;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+ul,ol{
+    list-style: none;
+}
+input{
+    border: none;
+    outline: none;
+    /*����ƶ���Ĭ�ϵı���ʽ*/
+    -webkit-appearance: none;
+}
+/*  去掉图片低测默认的3像素空白缝隙*/
+table {
+    border-collapse: collapse;			/*合并外边线*/
+}
+
+/* common css */
+.f_left{
+    float: left;
+}
+.f_right{
+    float: right;
+}
+.clearfix::before,
+.clearfix::after{
+    content: "";
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+[class^="icon_"]{
+    background: url("../images/sprites.png") no-repeat;
+    background-size: 200px 200px;
+}
+
+.m_l10{
+    margin-left: 10px;
+}
+.m_r10{
+    margin-right: 10px;
+}
+.m_b10{
+    margin-bottom: 10px;
+}
+.m_t10{
+    margin-top: 10px;
+}
+
+
+/* 边框的 通用样式 */
+.b_l{
+    border-left: 1px solid #cccccc;
+}
+.b_r{
+    border-right: 1px solid #cccccc;
+}
+.b_t{
+    border-top: 1px solid #cccccc;
+}
+.b_b{
+    border-bottom: 1px solid #cccccc;
+}

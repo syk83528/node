@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box {
+			width: 200px;
+			height: 200px;
+			border: 1px solid #eee;
+
+		}
+	</style>
+</head>
+<body>
+	<h1>ajax请求</h1>
+	<input type="button" name="" value="请求" id="btn">
+	<div id="box"></div>
+</body>
+
+<script type="text/javascript">
+
+	document.querySelector('#btn').onclick = function(){
+		//5步
+		// 1.创建对象
+		var ajax = new XMLHttpRequest();
+		// 2.设置请求参数,url
+		ajax.open('get','ajax.php');
+		// 3.发送请求
+		ajax.send();
+		// 4.注册事件
+		ajax.onreadystatechange = function(){
+			// 5.调用注册事件程序
+			//readyState==4:数据处理中 status=200:请求成功,页面存在
+			// 0: 请求未初始化
+			// 1: 服务器连接已建立
+			// 2: 请求已接收
+			// 3: 请求处理中
+			// 4: 请求已完成，且响应已就绪
+			if (ajax.readyState == 4 && ajax.status==200) {
+				console.log('调用了');
+				console.log(ajax.responseText);
+				document.querySelector('#box').innerHTML(ajax.responseText);
+			} else {
+				console.log('页面不存在');
+			}
+			
+		}
+		
+	}
+</script>
+</html>

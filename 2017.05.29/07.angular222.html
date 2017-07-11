@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="App">
+<div ng-controller="DemoController">
+    <form ng-submit="add()">
+        <input type="text" ng-model="todo">
+    </form>
+    <p>{{price|currency:'¥'}}</p>
+    <p>{{time|date:'yyyy年MM月dd日'}}</p>
+    <ul>
+        <li ng-repeat="(key,val) in items">
+            <input type="checkbox" ng-checked="val.flag">
+            <span>{{val.name}}</span>
+        </li>
+    </ul>
+</div>
+
+<script src="libs/angular.min.js"></script>
+<script>
+    var App = angular.module('App',[]);
+
+    App.controller('DemoController',['$scope',function ($scope) {
+//        $scope.name = 'nihao';
+        $scope.price = 5;
+        $scope.time = new Date();
+        $scope.items = [];
+        $scope.add = function () {
+            $scope.items.push({name:$scope.todo,flag:false});
+        }
+    }]);
+
+</script>
+</body>
+</html>

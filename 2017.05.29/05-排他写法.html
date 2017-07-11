@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li {
+            list-style: none;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            /*background-color: #eee;*/
+        }
+        .tabs {
+            /*width: 400px;*/
+            width: 100%;
+            margin: 0 auto;
+            background-color: #eee;
+            text-align: center;
+        }
+        .tabs nav {
+            height: 40px;
+            /*text-align: center;*/
+            line-height: 40px;
+            overflow: hidden;
+        }
+        nav a {
+            display: inline-block;
+            background-color: #C0DCC0;
+            border-right: 1px solid #FFF;
+            color: #000;
+            padding:0 20px;
+            text-decoration: none;
+            margin-right:-5px;
+        }
+        nav a.current {
+            background-color: #eee;
+        }
+        .tabs .tab-content section{
+
+        }
+    </style>
+</head>
+<body>
+<div class="tabs" ng-controller="TabController">
+    <nav>
+        <a href="javascript:;" ng-click="switch('a')" ng-class="{current:type=='a'}">国内新闻</a>
+        <a href="javascript:;" ng-click="switch('b')" ng-class="{current:type=='b'}">国际新闻国际新闻</a>
+        <a href="javascript:;" ng-click="switch('c')" ng-class="{current:type=='c'}">体育新闻</a>
+        <a href="javascript:;" ng-click="switch('d')" ng-class="{current:type=='d'}">娱乐新闻</a>
+    </nav>
+    <div class="tab-content" ng-switch="type">
+        <section ng-switch-when="a">
+            <ul>
+                <li>河南再次发生矿难，死伤人数超砖石ddddddddd</li>
+                <li>河南再次发生矿难，死伤人数超砖石ddddddddd</li>
+                <li>河南再次发生矿难，死伤人数超砖石ddddddddd</li>
+                <li>河南再次发生矿难，死伤人数超砖石ddddddddd</li>
+                <li>河南再次发生矿难，死伤人数超砖石ddddddddd</li>
+            </ul>
+        </section>
+        <section ng-switch-when="b">
+            <ul>
+                <li>河感在生矿难，死伤在全10</li>
+                <li>禽流感在感在广1处继续蔓延，温家宝指示</li>
+                <li>南方大旱，农作物减产绝收面积上亩</li>
+                <li>猪流感在广在全国暴发</li>
+                <li>禽流感在全国多处继续蔓延，温家宝指示</li>
+                <li>南方大旱，农作物减产绝收面积上亩</li>
+                <li>猪流感在广东群体性暴发</li>
+            </ul>
+        </section>
+        <section ng-switch-when="c">
+            <ul>
+                <li>猪流感在广东群体性暴发</li>
+                <li>禽流感在全农作物继续蔓延，温家宝指示</li>
+                <li>南方大农作物减产绝收面积上亩</li>
+                <li>猪流感在广东群体性暴发</li>
+                <li>猪流感在广东群体性暴发</li>
+                <li>禽流感在全农作物继续蔓延，温家宝指示</li>
+                <li>南方大农作物减产绝收面积上亩</li>
+                <li>猪流感在广东群体性暴发</li>
+            </ul>
+        </section>
+        <section ng-switch-when="d">
+            <ul>
+                <li>河南再次发生矿难，死伤人数超砖石ddddddddd</li>
+                <li>河南再次发生矿难，死伤人数超砖石ddddddddd</li>
+                <li>河南再次发生矿难，死伤人数超砖石ddddddddd</li>
+                <li>河南再次发生矿难，死伤人数超砖石ddddddddd</li>
+                <li>河南再次发生矿难，死伤人数超砖石ddddddddd</li>
+            </ul>
+        </section>
+    </div>
+
+</div>
+
+<script src="libs/angular.min.js"></script>
+<script>
+    var App = angular.module('App',[]);
+    App.controller('TabController',['$scope',function ($scope) {
+        $scope.type = 'a';
+        $scope.switch = function (type) {
+//            console.log('sd');
+            $scope.type = type;
+        }
+    }]);
+</script>
+</body>
+</html>

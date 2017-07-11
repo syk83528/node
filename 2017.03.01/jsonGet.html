@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>json获取</h1>
+<input type="button" value="按钮" id="btn">
+<script src="ajax_tool.js"></script>
+<script>
+    var btn = document.querySelector('#btn');
+//    btn.onclick = function () {
+//        //请求数据
+//        var ajax = new XMLHttpRequest();
+//        ajax.open('get','jsonGet.php');
+//        ajax.send();
+//        ajax.onreadystatechange = function () {
+//            if (ajax.readyState == 4 && ajax.status == 200) {
+//                console.log(ajax.responseText);
+//                var jsObj = JSON.parse(ajax.responseText);
+//                console.log(jsObj.name);
+//                console.log(jsObj.age);
+//                console.log(jsObj.sex);
+//            }
+//        }
+//    }
+    btn.onclick = function () {
+//        ajax_get('jsonGet.php',undefined,function (data) {
+//            console.log(data);
+//        });
+        ajax_tool({
+            'url':'jsonGet.php',
+            'method':'get',
+//            'data':''
+            'success':function (data) {
+                console.log(data);
+            }
+        })
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+@import url("./base.less");
+//@import './base.less';
+@import "./adapter.less";
+//@import "./font.css";
+@import "./minin.less";
+.wrapper {
+  .topbar {
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .items {
+    padding: 0 24/64rem;
+    .title {
+      overflow: hidden;
+      margin: 20/64rem 0 20/64rem;
+      h3 {
+        float: left;
+        font-size: 28/64rem;
+      }
+
+      span {
+        float: right;
+        color: #888;
+      }
+    }
+
+    //添加按钮
+    .add {
+      height: 220/64rem;
+      background-color: white;
+      border: 3/64rem dashed #dedede;
+      text-align: center;
+      a {
+        color: #aeaeae;
+        display: block;
+        font-size: 104/64rem;
+        padding-top: 36/64rem;
+      }
+
+      span {
+        margin-top: 16/64rem;;
+        color: #aeaeae;
+        display: block;
+        font-size: 26/64rem;
+      }
+
+    }
+
+    //优惠券
+    .item {
+      //border-radius: ;
+      margin-bottom:32/64rem;
+      .rounded-corners(10/64rem);
+      overflow: hidden;
+      .body {
+        height:224/64rem;
+        background-color: pink;
+      }
+
+      .action {
+        height:80/64rem;
+        background-color: gold;
+      }
+    }
+  }
+}

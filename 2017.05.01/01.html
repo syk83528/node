@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="jquery.min.js"></script>
+
+<script>
+
+    function Person() {
+
+
+    }
+
+    Person.prototype.sayHello = function () {
+        console.log('大家好');
+    }
+
+    var p1 = new Person();
+    p1.sayHello();
+
+    Person.prototype = {
+        msg : function () {
+            console.log('我是信息');
+        }
+    }
+
+    var p2 = new Person();
+    p2.sayHello();//没有打印
+    p1.sayHello();//打印了信息
+
+//    说明,已经实例化的对象原型是不会变得
+
+
+
+//    function Person() {
+//
+//    }
+//
+//    Person.prototype.aa = function () {
+//        console.log('强身健体,保卫祖国');
+//    };
+//
+//    var p = new Person();
+//    p.aa();
+//
+//    function speak() {
+//        console.log('我们说中国话');
+//    }
+//    function student() {
+//        this.name = "";
+//        this.age = 0;
+//        this.speak = speak;
+//    }
+//
+//    var stu = new student();
+//    stu.speak();
+//    var stu1 = new student();
+//    stu1.speak();
+//    $('body').append("<div style='width: 200px;height: 200px;border: 1px solid #000;'></div>")
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .container {
+        width: 640px;
+        border-radius: 10px;
+        background-color: #eeeeee;
+        overflow: hidden;
+    }
+
+    .container img {
+        display: block;
+    }
+
+    .container .bottom {
+        height: 35px;
+        position: relative;
+    }
+
+    .container .bottom a {
+        /*display: block;*/
+        text-decoration: none;
+        color: gray;
+        height: 35px;
+        line-height: 35px;
+        margin-left: 18px;
+    }
+
+    .container .bottom .right-box {
+        /*background-color: #f00;*/
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        /*width: 60px;*/
+    }
+    .right-box span{
+        display: inline-block;
+        font-size: 17px;
+        line-height:35px;
+        color: gray;
+        margin:0 20px;
+    }
+    .right-box span::before {
+        margin-right: 10px;
+        color: #dd5a64;
+    }
+
+    #getMore {
+        position: fixed;
+        border-radius: 10px;
+        right: 10px;
+        bottom: 10px;
+        background-color: #23b6b7;
+
+    }
+</style>
+<link rel="stylesheet" href="css/font-awesome.css">
+<body>
+<input type="button" value="加载更多" id="getMore">
+<div class="container">
+    <img src="images/vol.846.jpg">
+    <div class="bottom">
+        <a href="#">vol.847用一首歌来想想你</a>
+        <div class="right-box">
+            <span class="icon-heart">233</span>
+            <span class="icon-comment">500</span>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/template-native.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="my.js"> src="my.js"</script>
+
+<script type="text/template" id="template">
+    <%for(var i = 0;i<items.length;i++) {%>
+    <div class="container">
+        <img src="<%=items[i].path%>">
+        <div class="bottom">
+            <a href="#"><%=items[i].name%></a>
+            <div class="right-box">
+                <span class="icon-heart"><%=items[i].star%></span>
+                <span class="icon-comment"><%=items[i].message%></span>
+            </div>
+        </div>
+    </div>
+    <%}%>
+</script>
+
+<script type="text/javascript">
+    $("#getMore").on('click',function () {
+//       console.log("123");
+        $.get('index.php',function (data) {
+//            console.log(data);
+            var jsArr = JSON.parse(data);
+            // 包装为 js对象
+            var obj = {
+                items:[jsArr]
+            }
+
+            // 调用模板引擎的方法 填充数据
+            var result = template('template',obj);
+            $('body').append(result);
+        });
+    });
+
+    $('#getMore').waterfall();
+</script>
+</html>

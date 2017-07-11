@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <style>
+        body {
+            position: relative;
+        }
+        .box {
+            width:100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .box img {
+            display: block;
+            width: 100%;
+        }
+        ul {
+            position:  relative;
+            z-index:1000;
+        }
+        ul li {
+            float: left;
+            width: 33.33333%;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+<ul class="clearfix" id="ul">
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<div class="box">
+    <img src="images/banner_1.jpg" alt="">
+</div>
+
+
+
+
+<!--<script type="text/javascript" src="js/jquery.min.js"></script>-->
+<script>
+    var ul = document.querySelector("#ul");
+    var uls = ul.querySelectorAll("li");
+    for (var i= 0;i<uls.length;i++) {
+        uls[i].index = i;
+        uls[i].onclick = function () {
+            if (this.index === 0){
+                location.href = "https://www.taobao.com";
+            }else {
+                location.href = "http://www.baidu.com";
+            }
+        }
+    }
+</script>
+</body>
+</html>
